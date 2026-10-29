@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumParadigm — Enterprise Hyper-Synergy Platform</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            900: '#312e81',
+                            950: '#1e1b4b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 8s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white overflow-x-hidden">
+
+    <!-- Background Ambient Glows -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute top-1/2 -right-40 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 3s;"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 5s;"></div>
+    </div>
+
+    <!-- Status Ticker Header -->
+    <header class="relative z-10 border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between text-xs">
+            <div class="flex items-center space-x-3">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span id="ticker-text" class="text-slate-400 font-medium tracking-wide">System Status: All systems synergizing at 99.998% quantum efficiency.</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-4 text-slate-400">
+                <span>Enterprise Node: <strong class="text-slate-200">US-EAST-QUANTUM-01</strong></span>
+                <span>Latency: <strong class="text-emerald-400">0.02ms</strong></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="relative z-10 border-b border-slate-800/50 bg-slate-950/40 backdrop-blur-xl sticky top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-400 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-400 bg-clip-text text-transparent">QuantumParadigm</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#solutions" class="hover:text-white transition">Solutions</a>
+                <a href="#paradigm" class="hover:text-white transition">Core Paradigm</a>
+                <a href="#metrics" class="hover:text-white transition">Enterprise ROI</a>
+                <a href="#governance" class="hover:text-white transition">AI Governance</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="triggerSynergy('Customer portal authentication requested. Please re-align your chakras.')" class="hidden sm:inline-flex text-sm font-medium text-slate-300 hover:text-white transition">Sign In</button>
+                <button onclick="triggerSynergy('Enterprise onboarding initialized. Await quantum authorization.')" class="bg-gradient-to-r from-indigo-500 to-violet-600 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition active:scale-95 text-sm">
+                    Request Quantum Demo
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative z-10 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 flex flex-col items-center text-center">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold mb-8 shadow-inner shadow-indigo-500/20">
+            <svg class="w-4 h-4 text-indigo-400 animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span>ANNOUNCING SERIES Z FUNDING • $4.2B RAISED FROM FUTURE VENTURES</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-5xl leading-tight mb-8">
+            Orchestrating <span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">Hyper-Synergistic Paradigms</span> for Enterprise Futures
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mb-12 font-normal leading-relaxed">
+            QuantumParadigm deploys proprietary neural-mesh frameworks across your organizational silos, turning raw corporate inertia into frictionless, frictionless-driven output vectors.
+        </p>
+
+        <!-- CTA Group -->
+        <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-5 w-full max-w-md mb-20">
+            <button onclick="triggerSynergy('Matrix synchronization initiated successfully.')" class="w-full sm:w-auto bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-xl shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-base">
+                Deploy Paradigm Now
+            </button>
+            <button onclick="triggerSynergy('Whitepaper transmission queued. Check your astral inbox.')" class="w-full sm:w-auto bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-semibold px-8 py-4 rounded-2xl transition-all text-base backdrop-blur-md">
+                Read Whitepaper (404 pages)
+            </button>
+        </div>
+
+        <!-- Infinite Loading Spinner Dashboard Mockup Card -->
+        <div class="w-full max-w-4xl bg-slate-900/70 border border-slate-800/80 rounded-3xl p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between pb-8 border-b border-slate-800 gap-6">
+                <div class="text-left">
+                    <h3 class="text-lg font-bold text-white">Global Cluster Synchronization</h3>
+                    <p class="text-xs text-slate-400 mt-1">Real-time telemetry across 1.4 million corporate nodes</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                        Optimizing Loops...
+                    </span>
+                    <button onclick="triggerSynergy('Manual loop reset requested. Entropy unchanged.')" class="text-xs text-slate-400 hover:text-white bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700/50 transition">Force Sync</button>
+                </div>
+            </div>
+
+            <!-- Spinner & Live Progress Container -->
+            <div class="py-16 flex flex-col items-center justify-center">
+                <!-- Endless Circular Spinner -->
+                <div class="relative w-32 h-32 mb-8">
+                    <div class="absolute inset-0 rounded-full border-4 border-indigo-500/20"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin"></div>
+                    <div class="absolute inset-4 rounded-full border-4 border-purple-500/20"></div>
+                    <div class="absolute inset-4 rounded-full border-4 border-purple-400 border-b-transparent animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+                    <div class="absolute inset-0 flex items-center justify-center font-bold text-sm tracking-tighter text-indigo-300">
+                        99.8%
+                    </div>
+                </div>
+                <h4 id="spinner-status-msg" class="text-sm font-medium text-slate-300 animate-pulse">Calibrating multidimensional synergy vectors...</h4>
+                <p class="text-xs text-slate-500 mt-2">Estimated time remaining: <span class="font-mono text-slate-400">∞ (Infinite)</span></p>
+            </div>
+
+            <!-- Fake Metric Grid Inside Card -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-slate-800/80">
+                <div class="bg-slate-950/40 p-4 rounded-2xl border border-slate-800/50 text-left">
+                    <span class="text-xs text-slate-400 block mb-1">Synergy Index</span>
+                    <span class="text-2xl font-bold text-white">9,842.1</span>
+                    <span class="text-[10px] text-emerald-400 block mt-1">↑ 412% from last epoch</span>
+                </div>
+                <div class="bg-slate-950/40 p-4 rounded-2xl border border-slate-800/50 text-left">
+                    <span class="text-xs text-slate-400 block mb-1">Paradigm Shifts</span>
+                    <span class="text-2xl font-bold text-white">142,890</span>
+                    <span class="text-[10px] text-emerald-400 block mt-1">↑ Zero resistance</span>
+                </div>
+                <div class="bg-slate-950/40 p-4 rounded-2xl border border-slate-800/50 text-left">
+                    <span class="text-xs text-slate-400 block mb-1">Blockchain AI Mesh</span>
+                    <span class="text-2xl font-bold text-white">99.9%</span>
+                    <span class="text-[10px] text-indigo-400 block mt-1">Decentralized buzzwords</span>
+                </div>
+                <div class="bg-slate-950/40 p-4 rounded-2xl border border-slate-800/50 text-left">
+                    <span class="text-xs text-slate-400 block mb-1">Shareholder Delight</span>
+                    <span class="text-2xl font-bold text-white">∞</span>
+                    <span class="text-[10px] text-purple-400 block mt-1">Mathematically verified</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Feature Section / Buzzwords -->
+        <div id="solutions" class="mt-32 w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-slate-900/40 border border-slate-800/80 p-8 rounded-3xl text-left backdrop-blur-lg hover:border-indigo-500/50 transition group">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Hyper-Localized Synergy</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6">Our patented recursive algorithm maps cross-departmental coffee breaks to maximize inter-office ideological cohesion.</p>
+                <button onclick="triggerSynergy('Coffee break protocol optimized.')" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center space-x-1">
+                    <span>Explore synergy vectors</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+
+            <div class="bg-slate-900/40 border border-slate-800/80 p-8 rounded-3xl text-left backdrop-blur-lg hover:border-purple-500/50 transition group">
+                <div class="w-12 h-12 rounded-2xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Predictive Paradigm Shifts</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6">Never get caught off guard by industry disruptions. We manufacture the disruptions before your competitors even conceptualize them.</p>
+                <button onclick="triggerSynergy('Disruption successfully manufactured.')" class="text-xs font-semibold text-purple-400 hover:text-purple-300 flex items-center space-x-1">
+                    <span>View predictive models</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+
+            <div class="bg-slate-900/40 border border-slate-800/80 p-8 rounded-3xl text-left backdrop-blur-lg hover:border-pink-500/50 transition group">
+                <div class="w-12 h-12 rounded-2xl bg-pink-600/20 border border-pink-500/30 flex items-center justify-center text-pink-400 mb-6 group-hover:scale-110 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Zero-Trust Quantum Mesh</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6">Military-grade encryption combined with corporate-grade buzzwords ensures complete compliance with imaginary standards.</p>
+                <button onclick="triggerSynergy('Quantum mesh verified by zero humans.')" class="text-xs font-semibold text-pink-400 hover:text-pink-300 flex items-center space-x-1">
+                    <span>Inspect security compliance</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-slate-800/80 bg-slate-950/80 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between text-sm text-slate-500 gap-6">
+            <div class="flex items-center space-x-3">
+                <span class="font-bold text-slate-300">QuantumParadigm, Inc.</span>
+                <span>•</span>
+                <span>All rights synergized worldwide.</span>
+            </div>
+            <div class="flex space-x-6 text-xs">
+                <a href="javascript:void(0)" onclick="triggerSynergy('Privacy policy is currently undergoing paradigm expansion.')" class="hover:text-slate-300 transition">Privacy Policy</a>
+                <a href="javascript:void(0)" onclick="triggerSynergy('Terms of service accepted by your mere presence.')" class="hover:text-slate-300 transition">Terms of Synergy</a>
+                <a href="javascript:void(0)" onclick="triggerSynergy('Investor relations notified of your curiosity.')" class="hover:text-slate-300 transition">Investor Relations</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Toast Notification Popup -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3 pointer-events-none"></div>
+
+    <script>
+        // Array of useless corporate spinner text updates
+        const spinnerMessages = [
+            "Calibrating multidimensional synergy vectors...",
+            "Re-aligning corporate chakras across timezones...",
+            "Synthesizing enterprise paradigm shift matrices...",
+            "Injecting blockchain AI into spreadsheet loops...",
+            "Decentralizing middle-management feedback loops...",
+            "Compressing quarterly KPIs into pure light...",
+            "Awaiting board approval from parallel dimension..."
+        ];
+
+        let msgIndex = 0;
+        setInterval(() => {
+            msgIndex = (msgIndex + 1) % spinnerMessages.length;
+            const el = document.getElementById('spinner-status-msg');
+            if (el) {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.innerText = spinnerMessages[msgIndex];
+                    el.style.opacity = '1';
+                }, 300);
+            }
+        }, 4000);
+
+        // Toast Trigger Function
+        function triggerSynergy(customMessage) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto bg-slate-900/95 border border-indigo-500/40 text-slate-100 px-5 py-4 rounded-2xl shadow-2xl backdrop-blur-xl flex items-center space-x-3 transform translate-y-10 opacity-0 transition-all duration-300 ease-out';
+            
+            toast.innerHTML = `
+                <div class="w-8 h-8 rounded-xl bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 flex-shrink-0">
+                    <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                </div>
+                <div>
+                    <h5 class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Synergy Index Increased</h5>
+                    <p class="text-xs text-slate-300 mt-0.5">${customMessage}</p>
+                </div>
+            `;
+            
+            container.appendChild(toast);
+
+            // Animate in
+            setTimeout(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            }, 50);
+
+            // Animate out & remove after 4 seconds
+            setTimeout(() => {
+                toast.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
